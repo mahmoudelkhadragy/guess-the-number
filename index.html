@@ -25,6 +25,7 @@
         <h1 class="game__h1">Guess The Number</h1>
         <img class="game__logo" src="./images/question.png" alt="man" />
       </div>
+
       <div class="game__guessBox">
         <input
           class="game__input"
@@ -33,17 +34,11 @@
           placeholder="What's your guess?"
         />
       </div>
-      <div class="game__result">
-        <p class="game__correct">
-          Correct Number
-          <img class="game__icon" src="./images/correct.png" alt="correct" />
-        </p>
-        <p class="game__wrong">
-          Wrong Number
-          <img class="game__icon" src="./images/wrong.png" alt="correct" />
-        </p>
+
+      <div id="result" class="game__result">
         <!-- This is where the result will be -->
       </div>
+
       <div class="game__buttons">
         <button id="number-submit" type="button" class="game__button__check">
           Check Number
@@ -51,7 +46,7 @@
         <button id="restart-game" class="game__button__restart">Restart</button>
       </div>
       <div id="history" class="game__history">
-        <p class="game__history__record">you guessed 44</p>
+        <!-- This is where we display the history -->
       </div>
     </div>
     <script src="plugin.js"></script>

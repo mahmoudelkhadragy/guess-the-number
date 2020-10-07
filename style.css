@@ -62,16 +62,16 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   margin: auto;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 5px;
   font-weight: 100;
   letter-spacing: 1px;
-  font-size: 17px;
+  font-size: 16px;
   margin: 10px auto;
 }
 
 .game__icon {
-  width: 26px;
+  width: 24px;
   margin-left: 10px;
 }
 .game__buttons {
@@ -111,4 +111,29 @@ body {
   border-radius: 15px;
   border: 3px solid var(--yellow);
   outline: none;
+}
+.game__history {
+  width: 300px;
+  margin: 10px auto;
+  /* padding: 10px; */
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 15px;
+}
+.game__history__record {
+  width: 250px;
+  margin: 0 auto;
+  padding: 5px 0;
+  border-bottom: 1px solid #7e7e84a1;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.game__history__record span {
+  margin-left: 5px;
+  color: #fea300;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+.game__history__record:last-of-type {
+  border-bottom: none;
 }
