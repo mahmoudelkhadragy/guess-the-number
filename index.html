@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!-- my own style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game">
+      <div class="game__header">
+        <h1 class="game__h1">Guess The Number</h1>
+        <img class="game__logo" src="./images/question.png" alt="man" />
+      </div>
+      <div class="game__guessBox">
+        <input
+          class="game__input"
+          id="number-guess"
+          type="text"
+          placeholder="What's your guess?"
+        />
+      </div>
+      <div class="game__result">
+        <p class="game__correct">
+          Correct Number
+          <img class="game__icon" src="./images/correct.png" alt="correct" />
+        </p>
+        <p class="game__wrong">
+          Wrong Number
+          <img class="game__icon" src="./images/wrong.png" alt="correct" />
+        </p>
+        <!-- This is where the result will be -->
+      </div>
+      <div class="game__buttons">
+        <button id="number-submit" type="button" class="game__button__check">
+          Check Number
+        </button>
+        <button id="restart-game" class="game__button__restart">Restart</button>
+      </div>
+      <div id="history" class="game__history">
+        <p class="game__history__record">you guessed 44</p>
+      </div>
+    </div>
+    <script src="plugin.js"></script>
+  </body>
+</html>

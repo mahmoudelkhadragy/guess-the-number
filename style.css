@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* #e1b12c => yellow */
+/* #44bd32 => green */
+:root {
+  --main_bg_color: #40739e;
+  --main_txt_color: #fefefe;
+  --green: #44bd32;
+  --yellow: #e1b12c;
+}
+body {
+  background-color: var(--main_bg_color);
+  color: var(--main_txt_color);
+}
+
+.game__h1 {
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+  margin: 30px auto 10px auto;
+}
+.game__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.game__logo {
+  width: fit-content;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.game__guessBox {
+  margin: auto;
+  text-align: center;
+}
+.game__input {
+  display: block;
+  border: 3px solid var(--main_bg_color);
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  padding: 6px;
+  margin: 20px auto 10px auto;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  font-size: 22px;
+  color: #6900c6;
+}
+.game__input:focus {
+  border-radius: 20px;
+  border: 3px solid var(--yellow);
+}
+::placeholder {
+  font-size: 18px;
+}
+
+.game__correct,
+.game__wrong {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 17px;
+  margin: 10px auto;
+}
+
+.game__icon {
+  width: 26px;
+  margin-left: 10px;
+}
+.game__buttons {
+  text-align: center;
+}
+.game__button__check,
+.game__button__restart {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 15px;
+  background-color: #feb600;
+  color: #333;
+  margin-right: 20px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  border: 3px solid var(--main_bg_color);
+}
+.game__button__restart {
+  background-color: #bdc3c7;
+}
+.game__button__check:hover {
+  background-color: #fea300;
+  transform: translateY(-2px);
+}
+.game__button__restart:hover {
+  background-color: #95a5a6;
+  transform: translateY(-2px);
+}
+.game__button__check:active,
+.game__button__restart:active {
+  border-radius: 15px;
+  border: none;
+  outline: none;
+}
+.game__button__check:focus,
+.game__button__restart:focus {
+  border-radius: 15px;
+  border: 3px solid var(--yellow);
+  outline: none;
+}
