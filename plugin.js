@@ -2,8 +2,13 @@ var correctNumber = getRandomNumber(100);
 var guesses = [];
 
 window.onload = function () {
+  handleShowGameBox();
   document.getElementById("number-submit").addEventListener("click", playGame);
   document.getElementById("restart-game").addEventListener("click", initGame);
+  document.getElementById("start_game").addEventListener("click", startGame);
+
+  //handle hover of level easy and hard
+  handleHoverMessages();
 };
 
 function playGame() {
@@ -11,7 +16,7 @@ function playGame() {
   let numberGuess = inputGuess.value;
 
   if (numberGuess === "" || isNaN(numberGuess)) {
-    shakeInput();
+    shakeInput("number-guess");
     return;
   }
   console.log(numberGuess);
@@ -21,6 +26,73 @@ function playGame() {
   displayHistory();
 
   inputGuess.value = "";
+}
+
+function startGame() {
+  let inputUsername = document.getElementById("username");
+  let username = inputUsername.value;
+
+  if (username === "" || !isNaN(username)) {
+    shakeInput("username");
+    return;
+  }
+  localStorage.setItem("username", username);
+  hideUserSection();
+  showGameBox();
+}
+
+function hideUserSection() {
+  document.querySelector(".game__user__info").style.display = "none";
+}
+function showUserSection() {
+  document.querySelector(".game__user__info").style.display = "block";
+}
+function hideGameBox() {
+  document.querySelector(".game__box").style.display = "none";
+}
+function showGameBox() {
+  document.querySelector(".game__box").style.display = "block";
+}
+
+// show or hide game box depends on localstorage username
+function handleShowGameBox() {
+  if (localStorage.getItem("username") === null) {
+    showUserSection();
+    hideGameBox();
+  } else {
+    showGameBox();
+    hideUserSection();
+  }
+}
+
+//show easy_message when hover
+function showEasyMessage() {
+  document.getElementById("message_easy").style.opacity = "1";
+}
+function hideEasyMessage() {
+  document.getElementById("message_easy").style.opacity = "0";
+}
+
+function showHardMessage() {
+  document.getElementById("message_hard").style.opacity = "1";
+}
+function hideHardMessage() {
+  document.getElementById("message_hard").style.opacity = "0";
+}
+
+function handleHoverMessages() {
+  document
+    .getElementById("level_easy")
+    .addEventListener("mouseenter", showEasyMessage);
+  document
+    .getElementById("level_easy")
+    .addEventListener("mouseleave", hideEasyMessage);
+  document
+    .getElementById("level_hard")
+    .addEventListener("mouseenter", showHardMessage);
+  document
+    .getElementById("level_hard")
+    .addEventListener("mouseleave", hideHardMessage);
 }
 
 //Make random number
@@ -110,8 +182,8 @@ function initGame() {
   displayHistory();
 }
 
-function shakeInput() {
-  const input = document.getElementById("number-guess");
+function shakeInput(idName) {
+  const input = document.getElementById(idName);
   input.classList.add("shake");
   setTimeout(() => {
     input.classList.remove("shake");

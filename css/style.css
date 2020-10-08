@@ -1,3 +1,4 @@
+/* general */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@ body {
   color: var(--main_txt_color);
 }
 
+/* section game__header */
 .game__h1 {
   font-family: "Russo One", sans-serif;
   text-align: center;
@@ -31,6 +33,10 @@ body {
   border-radius: 50%;
 }
 
+/* section game__box */
+.game__box {
+  display: none;
+}
 .game__guessBox {
   margin: auto;
   text-align: center;
@@ -78,9 +84,10 @@ body {
   text-align: center;
 }
 .game__button__check,
-.game__button__restart {
+.game__button__restart,
+.game__button__start {
   border: none;
-  padding: 8px 15px;
+  padding: 7px 15px;
   border-radius: 15px;
   background-color: #feb600;
   color: #333;
@@ -92,7 +99,13 @@ body {
 .game__button__restart {
   background-color: #bdc3c7;
 }
-.game__button__check:hover {
+.game__button__start {
+  display: block;
+  margin: 20px auto 10px auto;
+  padding: 6px 22px;
+}
+.game__button__check:hover,
+.game__button__start:hover {
   background-color: #fea300;
   transform: translateY(-2px);
 }
@@ -101,13 +114,15 @@ body {
   transform: translateY(-2px);
 }
 .game__button__check:active,
-.game__button__restart:active {
+.game__button__restart:active,
+.game__button__start:active {
   border-radius: 15px;
   border: none;
   outline: none;
 }
 .game__button__check:focus,
-.game__button__restart:focus {
+.game__button__restart:focus,
+.game__button__start:focus {
   border-radius: 15px;
   border: 3px solid var(--yellow);
   outline: none;
@@ -143,6 +158,107 @@ body {
   margin-right: 10px;
   margin-left: 0 !important;
   font-size: 24px !important;
+}
+
+/*section  game__user__info */
+
+.game__user__info {
+  width: 400px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 10px auto;
+  padding: 10px;
+}
+.game__user__info .game__input {
+  margin: 10px auto;
+}
+.game__rangeNumbers,
+.game__levelOfGame {
+  display: flex;
+  justify-content: center;
+}
+.game__user__info p {
+  margin-bottom: 8px;
+}
+.game__number__range,
+.game__level {
+  padding: 3px 10px;
+  border-radius: 8px;
+  background-color: #4d8da7;
+  border: 3px solid #6caec7;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.game__number__range:nth-of-type(1),
+.game__level:nth-of-type(1) {
+  margin-right: 20px;
+}
+.game__number__range:hover,
+.game__level:hover {
+  transform: translateY(-2px);
+}
+.game__number__range:nth-of-type(2),
+.game__level:nth-of-type(2) {
+  margin-left: 20px;
+}
+.game__levelOfGame {
+  position: relative;
+}
+.game__levelOfGame__info__easy,
+.game__levelOfGame__info__hard {
+  position: absolute;
+  width: 130px;
+  background-color: #335c80;
+  color: #fff;
+  letter-spacing: 0.75px;
+  border: 3px solid #feb72f;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  z-index: 3;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+.game__levelOfGame__info__easy {
+  top: -42px;
+  left: -47px;
+}
+.game__levelOfGame__info__hard {
+  top: -42px;
+  right: -47px;
+}
+.game__levelOfGame__info__hard::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #335c80;
+  position: absolute;
+  left: -9px;
+  top: 41px;
+  border-left: 3px solid #feb72f;
+  border-bottom: 3px solid #feb72f;
+  transform: rotate(45deg);
+  border-radius: 3px;
+}
+.game__levelOfGame__info__easy::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #335c80;
+  position: absolute;
+  right: -9px;
+  top: 41px;
+  border-right: 3px solid #feb72f;
+  border-top: 3px solid #feb72f;
+  transform: rotate(45deg);
+  border-radius: 3px;
+}
+.active {
+  background-color: #71bddafa;
+  border: 3px solid #9adef9;
+  color: #fff;
 }
 
 .shake {

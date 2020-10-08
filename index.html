@@ -28,27 +28,65 @@
         <img class="game__logo" src="./images/question.png" alt="man" />
       </div>
 
-      <div class="game__guessBox">
+      <div class="game__user__info">
         <input
           class="game__input"
-          id="number-guess"
+          id="username"
           type="text"
-          placeholder="What's your guess?"
+          placeholder="Enter your name?"
         />
-      </div>
 
-      <div id="result" class="game__result">
-        <!-- This is where the result will be -->
-      </div>
+        <p class="text-center">Enter range of the numbers</p>
+        <div class="game__rangeNumbers">
+          <div id="range_100" class="game__number__range active">100</div>
+          <div id="range_1000" class="game__number__range">1000</div>
+        </div>
 
-      <div class="game__buttons">
-        <button id="number-submit" type="button" class="game__button__check">
-          Check Number
+        <p class="text-center mt-2">Choose level of the game</p>
+
+        <div class="game__levelOfGame">
+          <div id="level_easy" class="game__level active">Easy</div>
+          <div id="level_hard" class="game__level">Hard</div>
+
+          <div id="message_easy" class="game__levelOfGame__info__easy">
+            Easy level game <br />
+            You will play with history
+          </div>
+          <div id="message_hard" class="game__levelOfGame__info__hard">
+            Hard level game <br />
+            You will play without history
+          </div>
+        </div>
+        <button id="start_game" type="button" class="game__button__start">
+          Start Game
         </button>
-        <button id="restart-game" class="game__button__restart">Restart</button>
       </div>
-      <div id="history" class="game__history">
-        <!-- This is where we display the history -->
+
+      <div class="game__box">
+        <div class="game__guessBox">
+          <input
+            class="game__input"
+            id="number-guess"
+            type="text"
+            placeholder="What's your guess?"
+          />
+        </div>
+
+        <div id="result" class="game__result">
+          <!-- This is where the result will be -->
+        </div>
+
+        <div class="game__buttons">
+          <button id="number-submit" type="button" class="game__button__check">
+            Check Number
+          </button>
+          <button id="restart-game" class="game__button__restart">
+            Restart
+          </button>
+        </div>
+        <div id="history" class="game__history">
+          <!-- This is where we display the history -->
+        </div>
       </div>
     </div>
 
