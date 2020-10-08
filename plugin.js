@@ -90,7 +90,9 @@ function displayHistory() {
   let reversedArray = [...guesses];
   reversedArray.reverse().map((item) => {
     history += `<p class="game__history__record">
-    You guessed <span>${item}</span></p>`;
+      <span class="game_right_icon"><i class="fas fa-angle-right"></i></span>
+      You guessed 
+      <span>${item}</span></p>`;
   });
   historyBox.innerHTML = history;
   if (historyBox.innerHTML === "") {

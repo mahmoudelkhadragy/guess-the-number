@@ -138,6 +138,13 @@ body {
   border-bottom: none;
 }
 
+.game_right_icon {
+  color: #bad3e8 !important;
+  margin-right: 10px;
+  margin-left: 0 !important;
+  font-size: 24px !important;
+}
+
 .shake {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
