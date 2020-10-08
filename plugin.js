@@ -1,3 +1,4 @@
+var n = 100;
 var correctNumber = getRandomNumber(100);
 var guesses = [];
 
@@ -39,6 +40,10 @@ function startGame() {
   localStorage.setItem("username", username);
   hideUserSection();
   showGameBox();
+}
+
+function getRangeNumbers() {
+  // document.getElementById
 }
 
 function hideUserSection() {
