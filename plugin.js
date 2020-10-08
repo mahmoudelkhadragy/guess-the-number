@@ -10,6 +10,10 @@ function playGame() {
   let inputGuess = document.getElementById("number-guess");
   let numberGuess = inputGuess.value;
 
+  if (numberGuess === "" || isNaN(numberGuess)) {
+    shakeInput();
+    return;
+  }
   console.log(numberGuess);
   console.log(correctNumber);
   displayResults(numberGuess);
@@ -85,7 +89,8 @@ function displayHistory() {
   let history = "";
   let reversedArray = [...guesses];
   reversedArray.reverse().map((item) => {
-    history += `<p class="game__history__record">You guessed <span>${item}</span></p>`;
+    history += `<p class="game__history__record">
+    You guessed <span>${item}</span></p>`;
   });
   historyBox.innerHTML = history;
   if (historyBox.innerHTML === "") {
@@ -101,4 +106,12 @@ function initGame() {
   guesses = [];
   document.getElementById("result").innerHTML = "";
   displayHistory();
+}
+
+function shakeInput() {
+  const input = document.getElementById("number-guess");
+  input.classList.add("shake");
+  setTimeout(() => {
+    input.classList.remove("shake");
+  }, 600);
 }
