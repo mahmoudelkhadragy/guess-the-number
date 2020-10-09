@@ -1,16 +1,51 @@
-var n = 100;
-var correctNumber = getRandomNumber(100);
+var n = (localStorage.getItem("range"))? localStorage.getItem("range") : 100;
+var level = (localStorage.getItem("level"))? localStorage.getItem("level") : "Easy";
+var correctNumber = getRandomNumber(n);
 var guesses = [];
+const rangeNumberButtons = document.querySelectorAll(".game__number__range");
+const levelButtons = document.querySelectorAll(".game__level");
+console.log(correctNumber);
 
 window.onload = function () {
   handleShowGameBox();
   document.getElementById("number-submit").addEventListener("click", playGame);
   document.getElementById("restart-game").addEventListener("click", initGame);
   document.getElementById("start_game").addEventListener("click", startGame);
+  // to get range numbers
+  optionsControlClick(rangeNumberButtons);
+  // to get level
+  optionsControlClick(levelButtons);
 
   //handle hover of level easy and hard
   handleHoverMessages();
+
 };
+
+
+// function takes array of elements and handle active class and n value and level
+function optionsControlClick(elements){
+  for (let i = 0; i < elements.length; i++){
+    elements[i].onclick = function(){
+      var el = elements[0];
+      while(el){
+        if(el.tagName === "DIV"){
+          el.classList.remove("active");
+        }
+        el = el.nextSibling;
+      }
+      this.classList.add("active");
+      if(this.classList.contains("game__number__range")){
+        n = +this.textContent;
+        console.log(n);
+      }else if(this.classList.contains("game__level")){
+        level = this.textContent;
+        console.log(level);
+      }
+    }
+  }
+}
+
+
 
 function playGame() {
   let inputGuess = document.getElementById("number-guess");
@@ -18,15 +53,20 @@ function playGame() {
 
   if (numberGuess === "" || isNaN(numberGuess)) {
     shakeInput("number-guess");
+    inputGuess.focus();
     return;
   }
   console.log(numberGuess);
   console.log(correctNumber);
   displayResults(numberGuess);
   saveGuessHistory(numberGuess);
-  displayHistory();
+  if(level === "Easy"){
+    displayHistory();
+  }
 
   inputGuess.value = "";
+  inputGuess.focus();
+  
 }
 
 function startGame() {
@@ -38,13 +78,16 @@ function startGame() {
     return;
   }
   localStorage.setItem("username", username);
+  localStorage.setItem("level", level);
+  localStorage.setItem("range", n);
+  correctNumber = getRandomNumber(n);
+
   hideUserSection();
   showGameBox();
+  document.getElementById("number-guess").focus();
 }
 
-function getRangeNumbers() {
-  // document.getElementById
-}
+
 
 function hideUserSection() {
   document.querySelector(".game__user__info").style.display = "none";
@@ -64,9 +107,11 @@ function handleShowGameBox() {
   if (localStorage.getItem("username") === null) {
     showUserSection();
     hideGameBox();
+    document.getElementById("username").focus();
   } else {
     showGameBox();
     hideUserSection();
+    document.getElementById("number-guess").focus();
   }
 }
 
@@ -109,8 +154,10 @@ function getRandomNumber(r) {
 function displayResults(numberGuess) {
   if (numberGuess > correctNumber) {
     showNumberAbove();
+    shakeResult(".game__wrong");
   } else if (numberGuess < correctNumber) {
     showNumberBelow();
+    shakeResult(".game__wrong");
   } else if (numberGuess == correctNumber) {
     showYouWon();
   }
@@ -167,7 +214,6 @@ function displayHistory() {
   let reversedArray = [...guesses];
   reversedArray.reverse().map((item) => {
     history += `<p class="game__history__record">
-      <span class="game_right_icon"><i class="fas fa-angle-right"></i></span>
       You guessed 
       <span>${item}</span></p>`;
   });
@@ -192,5 +238,12 @@ function shakeInput(idName) {
   input.classList.add("shake");
   setTimeout(() => {
     input.classList.remove("shake");
+  }, 600);
+}
+function shakeResult(className) {
+  const input = document.querySelector(className);
+  input.classList.add("shake_result");
+  setTimeout(() => {
+    input.classList.remove("shake_result");
   }, 600);
 }
