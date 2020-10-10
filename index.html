@@ -91,10 +91,21 @@
     </div>
 
     <!-- pop up winner -->
-    <div class="popup_winner">
-      <h2>congratulations</h2>
-      <p>here is number of tryies</p>
+    <div id="popup_winner" class="popup_winner">
+        <div class="popup_content">
+          <h2 id="congrat_user">congratulations <span id="display_username"></span></h2>
+          <p id="user_tries">You made it just in <span id="number_tries"></span> tries.</p>
+          <div id="popup_banner">
+            
+          </div>
+          <button id="play_again" class="btn_play_again" type="button">play Again</button>
+          <button id="exit_game" class="btn_exit_game" type="button">Exit Game</button>
+        </div>
     </div>
+
+    <!-- about the game -->
+    
+
 
     <script src="plugin.js"></script>
   </body>
