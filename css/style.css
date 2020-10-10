@@ -85,7 +85,9 @@ body {
 }
 .game__button__check,
 .game__button__restart,
-.game__button__start {
+.game__button__start,
+.btn_play_again,
+.btn_exit_game {
   border: none;
   padding: 7px 15px;
   border-radius: 15px;
@@ -96,7 +98,8 @@ body {
   outline: none;
   border: 3px solid var(--main_bg_color);
 }
-.game__button__restart {
+.game__button__restart,
+.btn_exit_game {
   background-color: #bdc3c7;
 }
 .game__button__start {
@@ -105,24 +108,30 @@ body {
   padding: 6px 22px;
 }
 .game__button__check:hover,
-.game__button__start:hover {
+.game__button__start:hover,
+.btn_play_again:hover {
   background-color: #fea300;
   transform: translateY(-2px);
 }
-.game__button__restart:hover {
+.game__button__restart:hover,
+.btn_exit_game:hover {
   background-color: #95a5a6;
   transform: translateY(-2px);
 }
 .game__button__check:active,
 .game__button__restart:active,
-.game__button__start:active {
+.game__button__start:active,
+.btn_play_again:active,
+.btn_exit_game:active {
   border-radius: 15px;
   border: none;
   outline: none;
 }
 .game__button__check:focus,
 .game__button__restart:focus,
-.game__button__start:focus {
+.game__button__start:focus,
+.btn_play_again:focus,
+.btn_exit_game:focus {
   border-radius: 15px;
   border: 3px solid var(--yellow);
   outline: none;
@@ -160,7 +169,7 @@ body {
   width: 400px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
-  margin: 10px auto;
+  margin: 20px auto 10px auto;
   padding: 10px;
 }
 .game__user__info .game__input {
@@ -260,13 +269,77 @@ body {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
-  border: 3px solid #e74c3c;
+  border: 3px solid #e74c3c !important;
 }
 .shake_result {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* popup winner */
+.popup_winner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #40739e;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.popup_content {
+  padding: 10px;
+}
+.popup_content h2 {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.popup_content p {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.winner_banner {
+  display: block;
+  width: 500px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.btn_play_again {
+  display: block;
+  margin: 15px auto;
+  padding: 7px 50px;
+}
+.btn_exit_game {
+  display: block;
+  margin: auto;
+  padding: 7px 30px;
+}
+
+#display_username,
+#number_tries {
+  color: #feb72f;
+}
+#number_tries {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .winner_banner {
+    width: 85%;
+  }
+  .game__h1 {
+    font-size: 30px;
+  }
+  .game__logo {
+    width: 100px;
+  }
 }
 
 @keyframes shake {

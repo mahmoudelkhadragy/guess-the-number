@@ -11,6 +11,8 @@ window.onload = function () {
   document.getElementById("number-submit").addEventListener("click", playGame);
   document.getElementById("restart-game").addEventListener("click", initGame);
   document.getElementById("start_game").addEventListener("click", startGame);
+  document.getElementById("play_again").addEventListener("click", playGameAgain);
+  document.getElementById("exit_game").addEventListener("click", exitGame);
   // to get range numbers
   optionsControlClick(rangeNumberButtons);
   // to get level
@@ -56,10 +58,9 @@ function playGame() {
     inputGuess.focus();
     return;
   }
-  console.log(numberGuess);
   console.log(correctNumber);
-  displayResults(numberGuess);
   saveGuessHistory(numberGuess);
+  displayResults(numberGuess);
   if(level === "Easy"){
     displayHistory();
   }
@@ -68,6 +69,13 @@ function playGame() {
   inputGuess.focus();
   
 }
+//handle Enter button to guess input
+document.getElementById("number-guess").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("number-submit").click();
+  }
+});
 
 function startGame() {
   let inputUsername = document.getElementById("username");
@@ -85,6 +93,7 @@ function startGame() {
   hideUserSection();
   showGameBox();
   document.getElementById("number-guess").focus();
+  inputUsername.value = "";
 }
 
 
@@ -160,6 +169,7 @@ function displayResults(numberGuess) {
     shakeResult(".game__wrong");
   } else if (numberGuess == correctNumber) {
     showYouWon();
+    showPopupWinner();
   }
 }
 
@@ -204,7 +214,6 @@ function showNumberBelow() {
 // function to save guess history
 function saveGuessHistory(guess) {
   guesses.push(guess);
-  console.log(guesses);
 }
 
 // function to display history
@@ -227,10 +236,25 @@ function displayHistory() {
 
 // function to reset the game
 function initGame() {
-  correctNumber = getRandomNumber(100);
+  correctNumber = getRandomNumber(n);
   guesses = [];
   document.getElementById("result").innerHTML = "";
   displayHistory();
+}
+
+function playGameAgain(){
+  initGame();
+  hidePopupWinner();
+}
+
+function exitGame(){
+  localStorage.removeItem("username");
+  localStorage.removeItem("level");
+  localStorage.removeItem("range");
+  initGame();
+  hidePopupWinner();
+  showUserSection();
+  hideGameBox();
 }
 
 function shakeInput(idName) {
@@ -246,4 +270,27 @@ function shakeResult(className) {
   setTimeout(() => {
     input.classList.remove("shake_result");
   }, 600);
+}
+
+// show popup winner
+function showPopupWinner(){
+  let username = localStorage.getItem('username');
+  let tries = guesses.length;
+  // let gifs = ["winning_banner1.gif", "winning_banner2.gif", "winning_banner3.gif"];
+  // arr[Math.floor(Math.random() * arr.length)]
+  let randomNumber = Math.ceil(Math.random() * 4);
+
+  let gifElem = `<img class="winner_banner" src="./images/winning_banner${randomNumber}.gif" alt="winning banner">`
+
+  document.getElementById("display_username").textContent = username;
+  document.getElementById("number_tries").textContent = tries;
+  document.getElementById("popup_banner").innerHTML = gifElem;
+
+  setTimeout(()=>{
+    document.getElementById('popup_winner').style.display = "block";
+  }, 600)
+}
+// hide popup winner
+function hidePopupWinner(){
+  document.getElementById('popup_winner').style.display = "none";
 }
