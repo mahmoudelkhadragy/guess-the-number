@@ -4,7 +4,6 @@ var correctNumber = getRandomNumber(n);
 var guesses = [];
 const rangeNumberButtons = document.querySelectorAll(".game__number__range");
 const levelButtons = document.querySelectorAll(".game__level");
-console.log(correctNumber);
 
 window.onload = function () {
   handleShowGameBox();
@@ -46,10 +45,8 @@ function optionsControlClick(elements){
       this.classList.add("active");
       if(this.classList.contains("game__number__range")){
         n = +this.textContent;
-        console.log(n);
       }else if(this.classList.contains("game__level")){
         level = this.textContent;
-        console.log(level);
       }
     }
   }
@@ -66,7 +63,6 @@ function playGame() {
     inputGuess.focus();
     return;
   }
-  console.log(correctNumber);
   saveGuessHistory(numberGuess);
   displayResults(numberGuess);
   if(level === "Easy"){
