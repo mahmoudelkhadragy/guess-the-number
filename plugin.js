@@ -13,6 +13,8 @@ window.onload = function () {
   document.getElementById("start_game").addEventListener("click", startGame);
   document.getElementById("play_again").addEventListener("click", playGameAgain);
   document.getElementById("exit_game").addEventListener("click", exitGame);
+  document.getElementById("open_about_me").addEventListener("click", openAboutMe);
+  document.querySelector(".close_about_game").addEventListener("click", closeAboutMe);
   // to get range numbers
   optionsControlClick(rangeNumberButtons);
   // to get level
@@ -23,6 +25,12 @@ window.onload = function () {
 
 };
 
+function openAboutMe(){
+  document.getElementById("about_game").style.top = "0px";
+}
+function closeAboutMe(){
+  document.getElementById("about_game").style.top = "-3000px";
+}
 
 // function takes array of elements and handle active class and n value and level
 function optionsControlClick(elements){

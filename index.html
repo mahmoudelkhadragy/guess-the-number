@@ -23,11 +23,14 @@
   </head>
   <body>
     <div class="game">
+      <!-- header of the game -->
+      
       <div class="game__header">
         <h1 class="game__h1">Guess The Number</h1>
         <img class="game__logo" src="./images/question.png" alt="man" />
       </div>
 
+      <!-- user section to get information -->
       <div class="game__user__info">
         <input
           class="game__input"
@@ -90,6 +93,9 @@
       </div>
     </div>
 
+    <!-- info icon -->
+    <span id="open_about_me" class="about_info_game"><i class="fas fa-info-circle"></i></span>
+
     <!-- pop up winner -->
     <div id="popup_winner" class="popup_winner">
         <div class="popup_content">
@@ -104,7 +110,36 @@
     </div>
 
     <!-- about the game -->
-    
+    <div id="about_game" class="about_game">
+      <div class="about_game_content">
+        <div class="game_about_info">
+          <span class="close_about_game"><i class="fas fa-times"></i></span>
+          <h3>About The Game</h3>
+          <h5>Guess The Number</h5>
+          <p>It is an easy game just for fun and try to guess the number from 1 to 100.<br>
+            You have to guess it with littel number of tries.<br>
+            If you guess the wrong number it will display an alert with usefull message that you will know if your guessed number it is high or low from the correct number.
+            There are to levels Easy and Hard, Easy level will let you see the history as you can remmeber the last range numbers you tried to enter, Hard level without history and you have to remmeber the range number you entered to guess the correct number.
+          </p>
+        </div>
+        <div class="game_about_me_info">
+          <h4>About Me</h4>
+          <p>Created by <span class="about_me_name">Mahmoud Elkhadragy</span> 2020</p>
+          <div class="social_links">
+            <a href="https://github.com/mahmoudelkhadragy" target="blank">
+              <i class="fab fa-github-square"></i>
+            </a>
+            <a href="https://www.facebook.com/Elkhadragy/" target="blank">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoud-elkhadragy-457802168/" target="blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
 
 
     <script src="plugin.js"></script>
