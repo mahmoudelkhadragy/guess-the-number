@@ -429,6 +429,26 @@ body {
   .about_game_content {
     width: 85%;
   }
+  .game__user__info {
+    width: 90%;
+  }
+  .game__input {
+    width: 85%;
+  }
+  .game__button__check {
+    margin-right: 10px;
+    padding: 6px 8px;
+    font-size: 15px;
+  }
+  .game__button__restart {
+    margin-left: 10px;
+    padding: 6px 8px;
+    font-size: 15px;
+  }
+  .game__buttons {
+    width: 95%;
+    margin: auto;
+  }
 }
 
 @keyframes shake {
